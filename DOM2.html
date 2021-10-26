@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+  
+    
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+          }
+        form{
+            display: flex;
+            flex-direction: column;
+        }  
+        input{
+             width:100px;
+             margin-left: 10px;
+        }
+        #adress{
+          width: 200px;
+        }
+        #complain{
+           width: 200px;
+           height: 100px;
+           margin-left: 10px;
+        }
+       
+    </style>
+    
+    <form action="mail.php" method="post" autocomplete="off">
+      <label for="fname">Your Name</label>
+      <input type="text"  name="fname" placeholder="Your name..">
+  
+      <label for="lname">Last Name</label>
+      <input  type = "text" name = "lname" placeholder="Last Name">
+      
+      
+      
+      <label for="adress">Adress</label>
+      <input  name="adress" type="text" placeholder="Last Name">
+     
+      <label for="message">Message</label>
+      <textarea  name="message" type = "text"
+      placeholder="Write something.." style="height:200px"></textarea>
+  
+      <input type="submit" value="Submit" id = submit>
+    </form>
+  
+  
+
+</body>
+</html>
