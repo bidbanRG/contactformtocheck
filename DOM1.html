@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html>
+ <html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     
+      
+    <title ></title>
+
+    
+</head>
+ 
+<body>
+    
+    <style>
+        
+            *{
+                padding: 0px;
+                margin: 0px;
+            } 
+            h1{
+               display: block;
+               color: black;
+             
+               text-align: center;
+               margin-top: 50px;
+               margin-bottom: 50px;
+               text-shadow:  2px 2px 5px red;
+               transition: text-shadow 1s;
+            }
+            h2{
+                transform: translateX(100px);
+                transition: translateX 2s ease-in;
+            }
+         
+         .box{
+             display: block;
+               margin: auto;
+              background-color: black;
+              height: 200px;
+              width: 200px;
+              text-align: center;
+            }
+            #increase{
+               display: block;
+               margin: auto;
+            }
+            #decrease{
+               display: block;
+               margin: auto;
+            }
+          .sidebar{
+                background-color: black;
+                height: 100%;
+                width: 200px;
+                display: flex;
+                position: absolute;
+                
+                
+                word-break: break-all;
+                transform: translate(-200px);
+                transition: transform 2s;
+                z-index: 1;
+                
+          }  
+          .sidebar li{
+               list-style: none;
+               color: white;
+               padding: 10px 0px;
+            
+          }
+          .sidebar ul{
+              display: flex;
+              flex-direction: column;
+              
+          }
+          .c1{
+              background-color: grey;
+              width: 100%;
+              height: 100px;
+              position: relative;
+              z-index: 0;
+          }
+          .c2{
+              background-color: orange;
+              width: 100%;
+              height: 200px;
+              position: relative;
+              z-index: 0;
+          }
+          
+          
+         
+
+     </style>
+         <h1>WELCOME</h1>
+
+          <div class = "box">
+             <h1> 0 </h1>;
+          </div>
+          <button id = "increase">+</button>
+          <button id = "decrease">-</button>
+         <button id = "bars"> updates </button>
+         
+          <div class = "sidebar">
+                <ul>
+                   <li>skdjgfds</li>
+                   <li>s;djg;sdg</li>
+                   <li>;sdjg;sldg</li>
+                   <li>sjldglsg</li>
+                </ul>
+          </div>
+          <h2>
+             THE LAWRA
+          </h2>
+              <div class="c1">x;gj;xldfjg;ldfxjg;xldfjg;xldfjg;ldfxjg</div>
+         <div class="c2">;kldjgf;sdjg;klsxjg;klsjg;kldjg;kldsg</div>
+               <p>skdgjhxks;jg;kfjg;djg;pk</p>
+         <script>
+            let btn1 = document.querySelector("#increase");
+            btn1.addEventListener('click',(e)=>{
+               let box = document.querySelector(".box");
+              let h1 = box.querySelector("h1");
+              var digit = h1.innerText;
+               var c = parseInt(digit);
+              digit = parseInt(digit) + 1;
+              
+             var colors = ["red","blue","orange","white","pink"];
+             c = c % colors.length;
+                  h1.style.color = colors[c];
+                var boxdetails = box.getBoundingClientRect();
+                box.style.height = boxdetails.height + 10 + "px";
+                box.style.width = boxdetails.width + 10 + "px";    
+ 
+              h1.innerText = digit;
+            })
+              let btn2 = document.querySelector("#decrease");
+            btn2.addEventListener('click',(e)=>{
+               let box = document.querySelector(".box");
+              let h1 = box.querySelector("h1");
+              var digit = h1.innerText;
+               var c = parseInt(digit);
+              digit = parseInt(digit) - 1;
+              
+            if(digit >= 0) 
+               {var colors = ["red","blue","orange","white","pink"];
+                  c = c % colors.length;
+                      h1.style.color = colors[c];
+                      var boxdetails = box.getBoundingClientRect();
+                   box.style.height = boxdetails.height - 10 + "px";
+                    box.style.width = boxdetails.width - 10 + "px";    
+                 h1.innerText = digit;
+              }
+            })
+
+
+          let sidebtn = document.querySelector("#bars");
+          sidebtn.addEventListener("click",(e)=>{
+                 let onclick = "translate(10px)";
+
+                 sidebar = document.querySelector(".sidebar");
+                   if(sidebar.style.transform === onclick)
+                        {    sidebar.style.transform = "translate(-200px)";
+                             sidebar.style.height = "0px";
+   let texts = sidebar.querySelector("ul").querySelectorAll("li");
+                       texts.forEach((text)=>{
+                            text.style.fontSize = "0rem";
+                       })       
+                             
+                             sidebtn.innerText = "updates";
+                        }
+                   else {sidebar.style.transform = onclick;
+                         
+                           sidebar.style.height = "400px";
+   let texts = sidebar.querySelector("ul").querySelectorAll("li");
+                       texts.forEach((text)=>{
+                            text.style.fontSize = "1rem";
+                       }) 
+                           sidebtn.innerText = "X";
+                           
+                   }  
+          })
+
+              
+     
+           var TIME = 1000;
+           let h1 = document.querySelector("h1");
+       function Text_Glow(){
+         
+         console.log(h1.style.textShadow);
+           if(h1.style.textShadow === "red 2px 2px 5px")
+              h1.style.textShadow  = "blue 2px 2px 5px";
+           else h1.style.textShadow = "red 2px 2px 5px";
+           console.log(setTimeout("Text_Glow()",TIME));
+       } 
+        window.onload = Text_Glow;
+                    
+      </script> 
+
+
+
+</body>
+ 
+</html>
